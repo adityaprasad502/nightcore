@@ -2,6 +2,7 @@ import time
 from datetime import datetime
 from pyrogram.types import Message
 from bot.hf.fic import vhkzuoi_repliz_handler
+from bot import AUTH_CHANNEL
 from bot.hf.flifi import uszkhvis_chats_ahndler
 from pyrogram import Client, filters
 
