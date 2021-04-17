@@ -1,9 +1,6 @@
 import time
 from datetime import datetime
 from pyrogram.types import Message
-from bot.hf.fic import vhkzuoi_repliz_handler
-from bot import AUTH_CHANNEL
-from bot.hf.flifi import uszkhvis_chats_ahndler
 from pyrogram import Client, filters
 
 StartTime = time.time()
@@ -28,8 +25,7 @@ def get_readable_time(seconds: int) -> str:
     ping_time += ":".join(time_list)
     return ping_time
 
-@Client.on_message(~filters.me & filters.command('ping', prefixes='/') &  uszkhvis_chats_ahndler([AUTH_CHANNEL]) &
-    vhkzuoi_repliz_handler)
+@Client.on_message(~filters.me & filters.command('ping', prefixes='/'), group=8)
 async def ping_bot(_, message):
     start_time = time.time()
     m = await message.reply_text("Pinging...")
