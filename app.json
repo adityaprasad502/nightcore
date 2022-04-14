@@ -1,7 +1,7 @@
 {
   "name": "No PMs Bot",
-  "description": "Modular  Telegram Bot powered by @PyroGram!",
-  "logo": "https://telegra.ph/file/55501e726922e79b8eea9.png",
+  "description": "Modular Telegram Bot powered by Pyrogram!",
+  "logo": "https://telegra.ph/file/a7c4d830ffb038b846347.jpg",
   "keywords": [
     "telegram",
     "bot",
@@ -12,9 +12,9 @@
     "channel",
     "administrators"
   ],
-  "repository": "https://github.com/SpEcHIDe/NoPMsBot",
-  "website": "https://telegram.dog/SpEcHlDe",
-  "success_url": "https://t.me/SpEcHlDe/571",
+  "repository": "https://github.com/adityaprasad502/nightcore",
+  "website": "https://da.gd/aditya",
+  "success_url": "https://t.me/realnub",
   "env": {
     "APP_ID": {
       "description": "Get this value from my.telegram.org! Please do not steal"
@@ -32,15 +32,19 @@
       "description": "Id of Chat, where the User Should Join, in order to use/contact throught bot."
     }
   },
-  "addons": [{
-    "plan": "heroku-postgresql",
-    "options": {
-      "version": "12"
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
     }
-  }],
-  "buildpacks": [{
-    "url": "heroku/python"
-  }],
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
   "formation": {
     "worker": {
       "quantity": 1,

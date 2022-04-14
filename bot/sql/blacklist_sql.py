@@ -17,19 +17,13 @@
 """ blacklist Table """
 
 from pyrogram.types import Message
-from sqlalchemy import (
-    Column,
-    String,
-    UnicodeText
-)
-from . import (
-    SESSION,
-    BASE
-)
+from sqlalchemy import Column, String, UnicodeText
+from . import SESSION, BASE
 
 
 class BlackList(BASE):
-    """ table to store BANned users """
+    """table to store BANned users"""
+
     __tablename__ = "blacklist"
     chat_id = Column(String(14), primary_key=True)
     reason = Column(UnicodeText)
@@ -46,24 +40,23 @@ BlackList.__table__.create(checkfirst=True)
 
 
 def add_user_to_bl(chat_id: int, reason: str):
-    """ add the user to the blacklist """
+    """add the user to the blacklist"""
     __user = BlackList(str(chat_id), reason)
     SESSION.add(__user)
     SESSION.commit()
 
 
 def check_is_black_list(message: Message):
-    """ check if user_id is blacklisted """
+    """check if user_id is blacklisted"""
     if message and message.from_user and message.from_user.id:
         try:
-            s__ = SESSION.query(BlackList).get(str(message.from_user.id))
-            return s__
+            return SESSION.query(BlackList).get(str(message.from_user.id))
         finally:
             SESSION.close()
 
 
 def rem_user_from_bl(chat_id: int):
-    """ remove the user from the blacklist """
+    """remove the user from the blacklist"""
     s__ = SESSION.query(BlackList).get(str(chat_id))
     if s__:
         SESSION.delete(s__)
